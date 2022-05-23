@@ -128,19 +128,23 @@
   }
   
 
-  .browser>.textarea{
+  .browser>.frame{
     background: rgb(19, 18, 18);
     position: absolute;
-    top: 30px;
-    height: calc(100% - 30px);
+    bottom: 0px;
+    height: calc(100% - 39px);
     width: 100%;
-    padding: 8px;
+
     overflow-y: auto;
-    font-size: 15px;
-    color: white;
-    outline: none;
-    font-family: 'Courier New', Courier, monospace;
+
     
+    outline: none;
+    
+    
+  }
+
+  .frame>iframe{
+    height: 100%;
   }
   
   .browser>.upBar>div:hover {  

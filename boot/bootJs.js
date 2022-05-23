@@ -204,16 +204,13 @@ function home() {
     function constructTerminal() {
         let myshell = new Shell();
         document.body.appendChild(myshell.shell);
-        myshell.dragElement(myshell.shell);
-
-
-        
+       
     }
 
     function constructEditor() {
         let myeditor = new textEditor();
         document.body.appendChild(myeditor.textEditor);
-        myeditor.dragElement(myeditor.textEditor);
+        
         myeditor.recover();
         setTimeout((() => {
             myeditor.textarea.focus();
@@ -260,8 +257,7 @@ function home() {
 
     }
 
-    
-    setInterval(timeCalc, 200);
+    setInterval(timeCalc, 500);
 
     function placeCaretAtEnd(el) {
         el.focus();
@@ -280,7 +276,6 @@ function home() {
             textRange.select();
         }
     }
-
 
     class Shell {
         shell;
@@ -358,13 +353,13 @@ function home() {
                     console.log("a");
                 }
                 });
-            upBar.addEventListener('mousedown',(e)=>{this.start_move_shell(e)} , true);
+            upBar.addEventListener('mousedown',(e)=>{this.start_move(e)} , true);
             upBar.style.cursor = 'move';
-            document.body.addEventListener('mouseup',(e)=>{this.stop_move_shell()}, true);
-            document.body.addEventListener('mousemove', (e)=>{this.move_shell(e)}, true);
+            document.body.addEventListener('mouseup',(e)=>{this.stop_move()}, true);
+            document.body.addEventListener('mousemove', (e)=>{this.drag(e)}, true);
         }
        
-        start_move_shell(e) {
+        start_move(e) {
             //console.log(this);
             this.move = true;
             this.offset = [
@@ -373,10 +368,11 @@ function home() {
             ];
         }
     
-        stop_move_shell(){
+        stop_move(){
             this.move = false;
         }
-        move_shell(e){
+
+        drag(e){
                 //console.log(e.clientX,e.clientY,this.getHeight(),this.getWidth());
                 if (this.move && e.clientX>0 && e.clientY>0){
                     let mousePosition = {
@@ -518,7 +514,6 @@ function home() {
         }
     }
 
-    
     class textEditor {
         textEditor;
         alertBanner;
@@ -574,34 +569,34 @@ function home() {
                 this.textEditor.style.zIndex = priority;
 
             })
-            upBar.addEventListener('mousedown',(e)=>{this.start_move_shell(e)} , true);
+            upBar.addEventListener('mousedown',(e)=>{this.start_move(e)} , true);
             upBar.style.cursor = 'move';
-            document.body.addEventListener('mouseup',(e)=>{this.stop_move_shell()}, true);
-            document.body.addEventListener('mousemove', (e)=>{this.move_shell(e)}, true);
+            document.body.addEventListener('mouseup',(e)=>{this.stop_move()}, true);
+            document.body.addEventListener('mousemove', (e)=>{this.drag(e)}, true);
         }
 
-        start_move_shell(e) {
+        start_move(e) {
             //console.log(this);
             this.move = true;
             this.offset = [
-                this.shell.offsetLeft - e.clientX,
-                this.shell.offsetTop - e.clientY
+                this.textEditor.offsetLeft - e.clientX,
+                this.textEditor.offsetTop - e.clientY
             ];
         }
     
-        stop_move_shell(){
+        stop_move(){
             this.move = false;
         }
-        move_shell(e){
-                //console.log(e.clientX,e.clientY,this.getHeight(),this.getWidth());
+
+        drag(e){
                 if (this.move && e.clientX>0 && e.clientY>0){
                     let mousePosition = {
                         x : e.clientX,
                         y : e.clientY
             
                     };
-                    this.shell.style.left = (mousePosition.x + this.offset[0]) + 'px';
-                    this.shell.style.top  = (mousePosition.y + this.offset[1]) + 'px';
+                    this.textEditor.style.left = (mousePosition.x + this.offset[0]) + 'px';
+                    this.textEditor.style.top  = (mousePosition.y + this.offset[1]) + 'px';
                 }
             }
 
@@ -655,7 +650,6 @@ function home() {
             localStorage.setItem("file", this.textarea.textContent);        
         }
     }
-
 
     class Browser {
         browser;
@@ -747,26 +741,26 @@ function home() {
                 
                 this.browser.style.zIndex = priority++;
             })
-            upBar.addEventListener('mousedown',(e)=>{this.start_move_shell(e)} , true);
+            upBar.addEventListener('mousedown',(e)=>{this.start_move(e)} , true);
             upBar.style.cursor = 'move';
-            document.body.addEventListener('mouseup',(e)=>{this.stop_move_shell()}, true);
-            document.body.addEventListener('mousemove', (e)=>{this.move_shell(e)}, true);
+            document.body.addEventListener('mouseup',(e)=>{this.stop_move()}, true);
+            document.body.addEventListener('mousemove', (e)=>{this.drag(e)}, true);
         }
 
 
-        start_move_shell(e) {
+        start_move(e) {
             //console.log(this);
             this.move = true;
             this.offset = [
-                this.shell.offsetLeft - e.clientX,
-                this.shell.offsetTop - e.clientY
+                this.browser.offsetLeft - e.clientX,
+                this.browser.offsetTop - e.clientY
             ];
         }
     
-        stop_move_shell(){
+        stop_move(){
             this.move = false;
         }
-        move_shell(e){
+        drag(e){
                 //console.log(e.clientX,e.clientY,this.getHeight(),this.getWidth());
                 if (this.move && e.clientX>0 && e.clientY>0){
                     let mousePosition = {
@@ -774,8 +768,8 @@ function home() {
                         y : e.clientY
             
                     };
-                    this.shell.style.left = (mousePosition.x + this.offset[0]) + 'px';
-                    this.shell.style.top  = (mousePosition.y + this.offset[1]) + 'px';
+                    this.browser.style.left = (mousePosition.x + this.offset[0]) + 'px';
+                    this.browser.style.top  = (mousePosition.y + this.offset[1]) + 'px';
                 }
             }
 
@@ -1241,8 +1235,6 @@ function home() {
             Schermo2();
             fullscreen = true;
         })
-
-
     }
 
     constructSwapScreen();
@@ -1258,7 +1250,6 @@ function timeCalc(){
 
     time =  months[currentdate.getMonth()+1] + " " + currentdate.getDate() + " "+ days[currentdate.getDay() % 7] + " " + (currentdate.getHours()<10?'0':'') + currentdate.getHours()  + ":" + ((currentdate.getMinutes()<10?'0':'') + currentdate.getMinutes() );
     document.getElementById("time").textContent = time;
-    console.log(time);
 }
 
 

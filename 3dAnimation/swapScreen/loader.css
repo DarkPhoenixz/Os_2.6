@@ -20,7 +20,7 @@ section:before, section:after {
     height: 80em;
     border: 2em solid #97e2dd;
     border-radius: 50%;
-    animation: shadowOuter 4s 0s ease infinite alternate;
+    animation: shadowOuter 1s 0s ease infinite alternate;
     z-index: -1;
     background-color: #111;
     
@@ -34,7 +34,7 @@ section:before, section:after {
     height: 76em;
     border: 1.5em solid rgba(51, 86, 150, 0.75);
     border-radius: 50%;
-    animation: shadowInner 4s 0s ease infinite alternate;
+    animation: shadowInner 1s 0s ease infinite alternate;
 }
 .loader:after {
     top: 50%;

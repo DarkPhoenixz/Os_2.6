@@ -41,8 +41,8 @@
   .terminal>.textarea{
     background: rgba(56, 4, 40, 1);  
     position: absolute;
-    top: 30px;
-    height: calc(100% - 30px);
+    top: 29px;
+    height: calc(100% - 29px);
     width: 100%;
     padding: 8px;
     overflow-y: auto;

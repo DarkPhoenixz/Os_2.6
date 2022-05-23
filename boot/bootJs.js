@@ -63,6 +63,8 @@ function bootLoader() {
             isBoot = false;
         }
         else if (e.code == "Space" && isBoot == true){
+            e.preventDefault();
+            document.head.removeChild(document.getElementById("bootcss"));
             setTimeout(skipToHome, 100);
             isBoot = false;
         }
@@ -84,7 +86,8 @@ function bootLoader() {
 
     function skipToHome() {
         let homeCode =
-        '<link rel="stylesheet" href="../3dAnimation/swapScreen/style3.0.css">\
+        '<link id="loadingcss" rel="stylesheet" href="../loading/newloading.css">\
+        <link rel="stylesheet" href="../3dAnimation/swapScreen/style3.0.css">\
         <link rel="stylesheet" href="../browser/style.css">\
         <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">\
         <link rel="stylesheet" href="../text_editor/css.css">\
@@ -93,18 +96,25 @@ function bootLoader() {
         <link rel="stylesheet" href="../3dAnimation/swapScreen/loader.css">\
         <link rel="stylesheet" href="../3dAnimation/swapScreen/bg.css"></link>\
         <div class = "container2"></div>\
-        <div class = "container"></div>\
-        <div id = "time"></div></div>\
+        <div class = "container">\
+        <div id = "time"></div>\
+        </div>\
         <section class="loader"><section class="dot"></section><section class="dot"></section><section class="dot"></section>\
         </section><p id="br"><img src="../3dAnimation/images/neonBrowser.png"><h1 id = "brC"></h1></p>\
         <p id="ed"><img src="../3dAnimation/images/neonText.png"><h1 id = "edC"></h1></p>\
         <p id="te"><img src="../3dAnimation/images/neonTerminal.png"><h1 id = "teC"></h1></p>';
-        
+        let link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = "../login/css.css";
+        document.head.appendChild(link);
+
         html = document.getElementsByTagName("html")[0];
         html.removeChild(document.body);
         html.appendChild(document.createElement("body"));
-        setTimeout(function() {document.body.innerHTML = homeCode;
-            home();}, 1500)
+        setTimeout(function() {
+            document.body.innerHTML = homeCode;
+            home();
+        }, 1500)
         
     }
 }

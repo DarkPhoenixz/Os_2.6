@@ -1,0 +1,182 @@
+  iframe   {
+      width: 100%;
+      height: calc(100% - 70px);
+      position: absolute;
+      outline: none;
+  }
+  
+  .browser {  
+    width: 90%; 
+    height: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid black;
+    resize: both;
+  }
+
+  #new{
+      cursor: pointer;
+        position: absolute;
+        z-index: 50000;
+        color: white;
+        top: 50%; /*top:30%*/
+        right: 140px;
+        transform : translate(-50%, -50%) rotate(45deg) scale(1.5);
+        
+    }
+
+    #new:hover{
+      animation: rotate 0.5s both;
+      
+    }
+
+    @keyframes rotate {
+      0% { 
+        transform: translate(-50%, -50%) rotate(45deg) scale(1.5);
+      }
+      100%{
+        transform : translate(-50%, -50%) rotate(225deg) scale(2.5) ;
+      }
+    }
+
+  .browser>.upBar {
+    height: 40px;  /*height:70px*/
+    width: 100%;
+    background: linear-gradient(#4b4b4b 0%,#3c3c3c 100%);
+    padding: 4px;
+    position: relative;
+  }
+
+  .browser>.downBar {
+    height: 30px;
+    width: 100%;
+    border: 1px solid black;
+    background-color: #161615;
+    position: absolute;
+    top: 40px;
+    display: flex;
+  }
+  .browser>.downBar>.scheda>i {
+      transform: scale(1);
+      left: 1%;
+      position: absolute;
+      color: white;
+  }
+
+.browser>.downBar>.scheda>i:hover {
+      transform: scale(1.5);
+      
+  }
+  .scheda { 
+    height: 30px;
+    width: 100%;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    position: relative;
+    color: white;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    padding: 5px;
+  }
+
+
+
+  .browser>.upBar>.close {
+    margin-left: 8px;
+  }
+
+  .browser>.upBar>span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+  }
+
+
+  
+  .browser>.upBar>div {
+    border-radius: 100%;
+    top: 35%; /*25*/
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    position: relative;
+    margin-right: 5px;
+    display: inline-block;
+    box-shadow: 1px 1px 3px black;
+  }
+
+  .browser>.upBar>.searchBar {
+    width: 70%;
+    height: 25px;
+    border-radius: 10px;
+    background-color: grey;
+    position: absolute;
+    top: 50%;  /*top:30%*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: none;
+    padding: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 18px;
+  }
+  
+
+  .browser>.textarea{
+    background: rgb(19, 18, 18);
+    position: absolute;
+    top: 30px;
+    height: calc(100% - 30px);
+    width: 100%;
+    padding: 8px;
+    overflow-y: auto;
+    font-size: 15px;
+    color: white;
+    outline: none;
+    font-family: 'Courier New', Courier, monospace;
+    
+  }
+  
+  .browser>.upBar>div:hover {  
+    cursor: pointer;
+  }
+  .browser>.upBar>div:hover>.buttons_text{
+  visibility: visible;
+  }
+  
+  .browser>.upBar>.close {  
+    background: linear-gradient(#f72a2a 0%, #f7532a 100%); 
+  }
+  
+  .browser>.upBar>.minimize {  
+    background: linear-gradient(#f5d442 0%, #fcff5e 100%);    
+    
+  }
+  
+  .browser>.upBar>.maximize {  
+    background: linear-gradient(#b1fc56 0%, #61f72a 100%); 
+  }
+  .browser>.upBar>div>.buttons_text{
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 5px;
+    left: 7.5px;
+    color: black;
+    visibility: hidden;
+  }
+  
+  .browser>.upBar>.minimize>div {
+    left: 4px;
+  }
+  
+  .browser>.upBar>.maximize>div {
+    left: -2px;
+    top: -5px;
+  }
+

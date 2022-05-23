@@ -1,0 +1,142 @@
+
+  .editor {  
+    width: 60%; 
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid black;
+    resize: both;
+  }
+  
+  .editor>.upBar {
+    height: 30px;
+    width: 100%;
+    background: linear-gradient(#383736 0%,#212120 100%);
+    padding: 4px;
+  }
+  .editor>.upBar>span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .editor>.upBar>div {
+    border-radius: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    position: relative;
+    margin-right: 5px;
+    display: inline-block;
+    box-shadow: 1px 1px 3px black;
+  }
+  .editor>.textarea{
+    background: rgb(19, 18, 18);
+    position: absolute;
+    top: 30px;
+    height: calc(100% - 30px);
+    width: 100%;
+    padding: 8px;
+    overflow-y: auto;
+    font-size: 15px;
+    color: white;
+    outline: none;
+    font-family: 'Courier New', Courier, monospace;
+    word-break: break-all;
+  }
+  .editor>.textarea>div{
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .editor>.upBar>div:hover {  
+    cursor: pointer;
+  }
+  .editor>.upBar>div:hover>.buttons_text{
+  visibility: visible;
+  }
+  
+  .editor>.upBar>.close {  
+    background: linear-gradient(#f72a2a 0%, #f7532a 100%); 
+  }
+  
+  .editor>.upBar>.minimize {  
+    background: linear-gradient(#f5d442 0%, #fcff5e 100%);    
+    
+  }
+  
+  .editor>.upBar>.maximize {  
+    background: linear-gradient(#b1fc56 0%, #61f72a 100%); 
+  }
+  
+  
+  .editor>.upBar>.minimize>div {
+    left: 4px;
+  }
+  
+  .editor>.upBar>.maximize>div {
+    left: -2px;
+    top: -5px;
+  }
+
+  .alert {
+    position: absolute;
+    z-index: 10000;
+    height: 100px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+    .alert>span {
+        position: absolute;
+        top: 40%;
+        transform: translateY(-40%);
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+        color: black;
+        
+        font-family: 'Courier New', Courier, monospace;
+        
+    }
+
+.alert>button{
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid black;
+
+}
+.yes{
+    position: absolute;
+    top: 75%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.no{
+    position: absolute;
+    top: 75%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.browser>.upBar>.searchBar {
+  width: 70%;
+  height: 25px;
+  border-radius: 10px;
+  background-color: grey;
+}

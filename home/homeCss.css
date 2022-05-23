@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+  }
+  
+  
+  
+  #terminalIcon {
+    cursor: pointer;
+    position: absolute;
+    width: 50px;
+    height: 10%;
+    top: 50px;
+    left: 20px;
+    z-index: 0;
+  }
+
+  #editorIcon {
+    cursor: pointer;
+    position: absolute;
+    width: 50px;
+    height: 10%;
+    top: 130px;
+    left: 20px;
+    z-index: 0;
+  }
+
+  #browserIcon {
+    cursor: pointer;
+    position: absolute;
+    width: 50px;
+    height: 10%;
+    top: 210px;
+    left: 20px;
+    z-index: 0;
+  }
+  
+  img {
+    height: 100%;
+  }
+  
+  #time{
+    position: absolute;
+    top: 2px;
+    right: 22px;
+    z-index: 10;
+    color: white;
+    font-size: 14px;
+  }

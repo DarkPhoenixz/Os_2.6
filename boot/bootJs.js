@@ -102,7 +102,11 @@ function bootLoader() {
         <section class="loader"><section class="dot"></section><section class="dot"></section><section class="dot"></section>\
         </section><p id="br"><img src="../3dAnimation/images/neonBrowser.png"><h1 id = "brC"></h1></p>\
         <p id="ed"><img src="../3dAnimation/images/neonText.png"><h1 id = "edC"></h1></p>\
-        <p id="te"><img src="../3dAnimation/images/neonTerminal.png"><h1 id = "teC"></h1></p>';
+        <p id="te"><img src="../3dAnimation/images/neonTerminal.png"><h1 id = "teC"></h1></p>\
+        <div id="batteryContainer"><div id="percent"></div></div>\
+        <div id="percentDisplay"></div>\
+        <div id="arrowDown"></div>';
+
         let link = document.createElement("link");
         link.rel = "stylesheet";
         link.href = "../login/css.css";
@@ -114,7 +118,7 @@ function bootLoader() {
         setTimeout(function() {
             document.body.innerHTML = homeCode;
             home();
-        }, 1500)
+        }, 0)
         
     }
 }
@@ -256,6 +260,29 @@ function home() {
         document.body.appendChild(arrowIcon);
 
     }
+
+    function Battery(){
+        let bat = document.getElementById("percent");
+        let display = document.getElementById("percentDisplay");
+        let display2 = document.getElementById("arrowDown")
+        navigator.getBattery()
+        .then(function(battery) {
+          bat.style.width = (battery.level * 100) + "%";
+          bat.addEventListener("mouseover", (e) => {
+            console.log("mouseover")
+            display.style.left = display2.style.left =(battery.level * 100) - 10 + "%";
+            display.textContent = (battery.level * 100) + "%";
+            display2.style.visibility = display.style.visibility = "visible";
+        })
+        bat.addEventListener("mouseout", (e) => {
+            console.log("mouseout")
+            display2.style.visibility = display.style.visibility = "hidden";
+        })
+        });
+       
+    }
+    
+    setTimeout(Battery, 500);
 
     setInterval(timeCalc, 500);
 

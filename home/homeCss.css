@@ -12,7 +12,6 @@
   }
   
   
-  
   #terminalIcon {
     cursor: pointer;
     position: absolute;
@@ -55,3 +54,85 @@
     color: white;
     font-size: 14px;
   }
+
+
+  #batteryContainer {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 13px;
+    border: 2px solid black;
+    border-radius: 20px;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  #percent {  
+    background-color: rgb(107, 248, 107);
+    height: 9px;
+    border-radius: 20px;
+    z-index: -1;
+  }  
+
+  #percentDisplay{
+    bottom: 10%;
+    background-color: rgb(107, 248, 107);
+    color: white;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  #arrowDown { 
+    position: relative;
+    left: 50%; 
+    top: 105%;
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgb(107, 248, 107);
+    transform: translate(-50%, -50%) scale(3);
+  }
+  #percentDisplay{
+    visibility: hidden;
+    bottom: 12%;
+    
+    background-color: rgb(107, 248, 107);
+    color: black;
+    font-size: 20px;
+    font-weight: 3;
+    font-family: 'Courier New', Courier, monospace;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 14px;
+  }
+
+  #arrowDown { 
+    visibility: hidden;
+    
+    top: 85.3%;
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgb(107, 248, 107);
+    transform: translate(-50%, -50%) scale(3);
+  }
+  
+
+

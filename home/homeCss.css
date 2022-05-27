@@ -1,138 +1,252 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+
+}
+
+
+#terminalIcon {
+  cursor: pointer;
+  position: absolute;
+  width: 50px;
+  height: 10%;
+  top: 50px;
+  left: 20px;
+  z-index: 0;
+}
+
+#editorIcon {
+  cursor: pointer;
+  position: absolute;
+  width: 50px;
+  height: 10%;
+  top: 130px;
+  left: 20px;
+  z-index: 0;
+}
+
+#browserIcon {
+  cursor: pointer;
+  position: absolute;
+  width: 50px;
+  height: 10%;
+  top: 210px;
+  left: 20px;
+  z-index: 0;
+}
+
+img {
+  height: 100%;
+}
+
+#time {
+  position: absolute;
+  top: 2px;
+  right: 22px;
+  z-index: 10;
+  color: white;
+  font-size: 14px;
+}
+
+#batteryContainer {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 13px;
+
+  border-radius: 20px;
+  z-index: -1;
+
+}
+
+#percent {
+  background-color: rgb(107, 248, 107);
+  height: 9px;
+  border-radius: 20px;
+  z-index: -1;
+}
+
+#percentDisplay {
+  bottom: 10%;
+  background-color: rgb(107, 248, 107);
+  color: white;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+}
+
+#arrowDown {
+  position: relative;
+  left: 50%;
+  top: 105%;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid rgb(107, 248, 107);
+  transform: translate(-50%, -50%) scale(3);
+}
+
+#percentDisplay {
+  visibility: hidden;
+  top: -70px;
+
+  background-color: rgb(107, 248, 107);
+  color: black;
+  font-size: 20px;
+  font-weight: 3;
+  font-family: 'Courier New', Courier, monospace;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  position: relative;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 14px;
+}
+
+#arrowDown {
+  visibility: hidden;
+  top: -80px;
+
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid rgb(107, 248, 107);
+  transform: translate(-50%, -50%) scale(3);
+}
+
+
+#glass {
+  height: 25px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  position: absolute;
+
+
+  display: flex;
+  padding: 5px;
+
+}
+
+#text {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  margin-left: 10px;
+}
+
+@keyframes fastMenuAppear {
+  0% {
+    height: 0px;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
   }
-  
-  html, body {
+
+  100% {
     height: 100%;
-    width: 100%;
-    overflow: hidden;
-    display: block;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
   }
-  
-  
-  #terminalIcon {
-    cursor: pointer;
-    position: absolute;
-    width: 50px;
-    height: 10%;
-    top: 50px;
-    left: 20px;
-    z-index: 0;
+}
+
+@keyframes fastMenuDisappear {
+  100% {
+    height: 0px;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
   }
 
-  #editorIcon {
-    cursor: pointer;
-    position: absolute;
-    width: 50px;
-    height: 10%;
-    top: 130px;
-    left: 20px;
-    z-index: 0;
-  }
-
-  #browserIcon {
-    cursor: pointer;
-    position: absolute;
-    width: 50px;
-    height: 10%;
-    top: 210px;
-    left: 20px;
-    z-index: 0;
-  }
-  
-  img {
+  0% {
     height: 100%;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
   }
-  
-  #time{
-    position: absolute;
-    top: 2px;
-    right: 22px;
-    z-index: 10;
-    color: white;
-    font-size: 14px;
-  }
+}
 
+#fastMenu {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0px;
+  z-index: 90000;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
-  #batteryContainer {
-    position: absolute;
-    left: 50%;
-    bottom: 10%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 13px;
-    border: 2px solid black;
-    border-radius: 20px;
-    z-index: -1;
-    overflow: hidden;
-  }
+#topSection {
+  width: 90%;
 
-  #percent {  
-    background-color: rgb(107, 248, 107);
-    height: 9px;
-    border-radius: 20px;
-    z-index: -1;
-  }  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 15%;
 
-  #percentDisplay{
-    bottom: 10%;
-    background-color: rgb(107, 248, 107);
-    color: white;
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    position: absolute;
-    display: block;
-    box-sizing: border-box;
-  }
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
 
-  #arrowDown { 
-    position: relative;
-    left: 50%; 
-    top: 105%;
-    width: 0; 
-    height: 0; 
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid rgb(107, 248, 107);
-    transform: translate(-50%, -50%) scale(3);
-  }
-  #percentDisplay{
-    visibility: hidden;
-    bottom: 12%;
-    
-    background-color: rgb(107, 248, 107);
-    color: black;
-    font-size: 20px;
-    font-weight: 3;
-    font-family: 'Courier New', Courier, monospace;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    position: absolute;
-    box-sizing: border-box;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    box-sizing: border-box;
-    padding-top: 14px;
-  }
+#topSection>img {
 
-  #arrowDown { 
-    visibility: hidden;
-    
-    top: 85.3%;
-    position: absolute;
-    width: 0; 
-    height: 0; 
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid rgb(107, 248, 107);
-    transform: translate(-50%, -50%) scale(3);
-  }
-  
+  height: 80%;
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
 
+}
 
+#bottomSection {
+  width: 90%;
+  background-color: white;
+  height: 75%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: baseline;
+  justify-content:  space-evenly;
+  flex-wrap: wrap;
+}
+
+#contextBar {
+  background-color: black;
+  height: 20px;
+  width: 100%;
+  position: relative;
+}
